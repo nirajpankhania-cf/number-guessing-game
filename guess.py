@@ -99,6 +99,7 @@ else: # gamemode is time challenge
         remaining = TIME_LIMIT - (time.time() - start_time)
         if remaining < 0:
             print("time's up! Game over!")
+            print(f'the secret number was: {secret_number}')
             break
 
         if guess.isdigit():

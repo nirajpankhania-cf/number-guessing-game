@@ -16,3 +16,5 @@
 | 12 | (time challenge) medium difficulty attempts, upper and range | input 2 at difficulty selection | prints '8', '100', '1-100' | prints '8', '100', '1-100' | Yes |
 | 13 | (time challenge) hard difficulty attempts, upper and range | input 3 at difficulty selection | prints '10', '500', '1-500' | prints '10', '500', '1-500' | Yes |
 | 14 | (classic) attempts | choose classic mode | prints '0' | prints '0' | Yes |
+| 15 | out of guesses | time challenge, guess wrong | prints 'out of guesses' and secret number | prints 'out of guesses' and secret number | Yes |
+| 16 | out of guesses | time challenge, guess wrong | prints 'time's up! Game over' and secret number | prints 'time's up! Game over' and secret number | Yes |
