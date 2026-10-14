@@ -18,3 +18,4 @@
 | 14 | (classic) attempts | choose classic mode | prints '0' | prints '0' | Yes |
 | 15 | out of guesses | time challenge, guess wrong | prints 'out of guesses' and secret number | prints 'out of guesses' and secret number | Yes |
 | 16 | out of guesses | time challenge, guess wrong | prints 'time's up! Game over' and secret number | prints 'time's up! Game over' and secret number | Yes |
+| 17 | timer works | make guesses | prints 'remaining time' decrementing correctly | prints 'remaining time' decrementing correctly | Yes |
