@@ -10,8 +10,16 @@ print("Welcome to the Number Guessing Game")
 # ---------- Choose a level ----------
 # Goal: keep asking until the player picks a valid level, then set the range and attempt limit.
 while True:
-    difficulty = input('choose a difficulty mode (easy, medium, hard): ').strip().lower()
-    if difficulty in ['easy', 'medium', 'hard']:
+    difficulty_options = ['easy', 'medium', 'hard']
+    track = {}
+
+    for i, option in enumerate(difficulty_options):
+        print(f'{i+1}. {option}')
+        key = str(i+1)
+        track[key] = option
+    choice = input('choose a difficulty mode(1-3): ').strip()
+    if choice in track:
+        difficulty = track[choice]
         break
     print('try again')
 
@@ -78,6 +86,42 @@ if game_mode == 'classic':
                 print('out of range, no attempts consumed')
         else:
             print('invalid guess, no attempts consumed')
+else: # gamemode is time challenge
+    start_time = time.time()
+    print(f'guess the number in {attempts} attempts before the time runs out')
+    remaining = TIME_LIMIT
+    while remaining > 0 and attempts > 0:
+        remaining = max(0, TIME_LIMIT - (time.time() - start_time))
+        print(f'remaining time: {round(remaining)} seconds')
+        print(f'remaining attempts: {attempts}')
+
+        guess = input(f'please guess a number between 1-{upper}: ').strip()
+        remaining = TIME_LIMIT - (time.time() - start_time)
+        if remaining < 0:
+            print("time's up! Game over!")
+            break
+
+        if guess.isdigit():
+            guess = int(guess)
+            if 1 <= guess <= upper:
+                # valid guess
+                attempts -= 1
+                if guess < secret_number:
+                    print('too low')
+                elif guess > secret_number:
+                    print('too high')
+                else:
+                    print('correct!')
+                    print(f'attempts left: {attempts}')
+                    print(f'time left: {round(remaining)} seconds')
+                    break
+            else:
+                print('out of range, no attempts consumed')
+        else:
+            print('invalid guess, no attempts consumed')
+
+
+
 
 # ---------- End of round ----------
 # Goal: show the result that matches how the round ended.
