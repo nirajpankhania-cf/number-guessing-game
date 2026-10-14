@@ -39,6 +39,8 @@ if DEBUG_SECRET is not None:
     upper = 50
     attempts = 10
 else:
+    # difficulty determines range/upper for both game modes
+    # attempts set to zero for tracking
     if difficulty == 'easy':
         upper = 50
         secret_number = random.randint(1, 50)
@@ -73,6 +75,7 @@ if game_mode == 'classic':
             guess = int(guess)
             if 1 <= guess <= upper:
                 # valid guess
+                # classic mode tracks attempts, doesnt limit them
                 attempts += 1
                 if guess < secret_number:
                     print('too low')
@@ -106,6 +109,7 @@ else: # gamemode is time challenge
             guess = int(guess)
             if 1 <= guess <= upper:
                 # valid guess
+                # time challenge mode, limits number of attempts
                 attempts -= 1
                 if guess < secret_number:
                     print('too low')
