@@ -119,6 +119,9 @@ else: # gamemode is time challenge
                 print('out of range, no attempts consumed')
         else:
             print('invalid guess, no attempts consumed')
+        if attempts == 0:
+            print('out of guesses')
+            print(f'the secret number was: {secret_number}')
 
 
 

@@ -1,6 +1,6 @@
 # number-guessing-game
 
-| What I tested | What I did | Expected result | Actual result | Pass? |
+| | What I tested | What I did | Expected result | Actual result | Pass? |
 |---|---------------|------------|-----------------|---------------|-------|
 | 1 | set easy difficulty | input 1 at difficulty selection | prints 'easy' | prints 'easy' | Yes |
 | 2 | set medium difficulty | input 2 at difficulty selection | prints 'medium' | prints 'medium' | Yes |
