@@ -10,8 +10,16 @@ print("Welcome to the Number Guessing Game")
 # ---------- Choose a level ----------
 # Goal: keep asking until the player picks a valid level, then set the range and attempt limit.
 while True:
-    difficulty = input('choose a difficulty mode (easy, medium, hard): ').strip().lower()
-    if difficulty in ['easy', 'medium', 'hard']:
+    difficulty_options = ['easy', 'medium', 'hard']
+    track = {}
+
+    for i, option in enumerate(difficulty_options):
+        print(f'{i+1}. {option}')
+        key = str(i+1)
+        track[key] = option
+    choice = input('choose a difficulty mode(1-3): ').strip()
+    if choice in track:
+        difficulty = track[choice]
         break
     print('try again')
 
