@@ -78,6 +78,42 @@ if game_mode == 'classic':
                 print('out of range, no attempts consumed')
         else:
             print('invalid guess, no attempts consumed')
+else: # gamemode is time challenge
+    start_time = time.time()
+    print(f'guess the number in {attempts} attempts before the time runs out')
+    remaining = TIME_LIMIT
+    while remaining > 0 and attempts > 0:
+        remaining = max(0, TIME_LIMIT - (time.time() - start_time))
+        print(f'remaining time: {round(remaining)} seconds')
+        print(f'remaining attempts: {attempts}')
+
+        guess = input(f'please guess a number between 1-{upper}: ').strip()
+        remaining = TIME_LIMIT - (time.time() - start_time)
+        if remaining < 0:
+            print("time's up! Game over!")
+            break
+
+        if guess.isdigit():
+            guess = int(guess)
+            if 1 <= guess <= upper:
+                # valid guess
+                attempts -= 1
+                if guess < secret_number:
+                    print('too low')
+                elif guess > secret_number:
+                    print('too high')
+                else:
+                    print('correct!')
+                    print(f'attempts left: {attempts}')
+                    print(f'time left: {round(remaining)} seconds')
+                    break
+            else:
+                print('out of range, no attempts consumed')
+        else:
+            print('invalid guess, no attempts consumed')
+
+
+
 
 # ---------- End of round ----------
 # Goal: show the result that matches how the round ended.
